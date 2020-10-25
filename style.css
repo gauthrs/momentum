@@ -43,6 +43,8 @@ body {
   background-color: #161616;
   color: #ffffff;
   background-size: cover;
+  background-image: url(./assets/images/overlay.png);
+  background-position: center center;
 }
 
 .wrapper {
@@ -62,12 +64,6 @@ body {
   text-align: center;
   width: 100%;
   height: 100%;
-}
-
-.content-section {
-  background-color: #16161654;
-  border-radius: 20px;
-  padding: 15px;
 }
 
 .content-section h1 {
@@ -97,10 +93,35 @@ body {
   display: inline-block;
 }
 
+.content-section .content-section__focus {
+  margin-bottom: 20px;
+}
+
+.content-section .content-section__quote {
+  display: block;
+  padding: 15px;
+  max-width: 500px;
+  min-height: 35px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+.content-section .content-section__blockquote {
+  padding-bottom: 10px;
+}
+
+.content-section .content-section__figcaption {
+  float: center;
+  font-style: italic;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.content-section .content-section__change-quote-btn {
+  color: #ffffff;
+}
+
 @media (max-width: 700px) {
-  .content-section {
-    padding: 10px;
-  }
   .content-section h1 {
     font-size: 20px;
   }
@@ -112,6 +133,9 @@ body {
   }
   .content-section .content-section__date {
     font-size: 15px;
+  }
+  .content-section .content-section__quote {
+    max-width: 400px;
   }
 }
 
