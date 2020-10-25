@@ -18,39 +18,52 @@ const setTime = () => {
 
     timeScreen.innerHTML = `${hour}:${addZero(min)}:${addZero(sec)}`;
     dateScreen.innerHTML = `${dayWeek}, ${day} ${month} ${year}`;
-    
+
     setTimeout(() => {
         setTime();
     }, 1000);
 };
 
-const getUsername = () => {
-    if (localStorage.getItem('username') === null || localStorage.getItem('username') === '') {
-        username.textContent = '[Enter your name]';
+const getStorage = () => {
+    username.innerHTML = (localStorage.getItem('username')) ? localStorage.getItem('username') : '[Enter your name]';
+    focus.innerHTML = (localStorage.getItem('focus')) ? localStorage.getItem('focus') : '[Enter your focus]';
+};
+
+const setUsernameStorage = (e) => {
+    setStorage(e, 'username');
+};
+
+const setFocusStorage = (e) => {
+    setStorage(e, 'focus');
+};
+
+const setStorage = (e, key) => {
+    let labelDefaultField = {
+        'username': '[Enter your name]',
+        'focus': '[Enter your focus]'
+    };
+
+    if (e.target.innerHTML === '' || e.target.innerHTML === null) {
+        e.target.innerHTML = (localStorage.getItem(key)) ? localStorage.getItem(key) : labelDefaultField[key];
     } else {
-        username.textContent = localStorage.getItem('username');
+        localStorage.setItem(key, e.target.innerHTML);
+        e.target.innerHTML = localStorage.getItem(key);
     }
 };
 
-const setUsername = (e) => {
-    if (e.type === 'keypress') {
-        if (e.which === 13 || e.keyCode === 13) {
-            if (e.target.innerText === null || e.target.innerText === '') {
-                getUsername();
-            } else {
-                localStorage.setItem('username', e.target.innerText);
-                username.blur();
-            }
-        }
-    } else {
-        localStorage.setItem('username', e.target.innerText);
+const deleteInner = (e) => {
+    e.target.innerHTML = '';
+};
+
+const checkElement = (e) => {
+    if (e.key === 'Enter') {
+        e.target.blur();
     }
 };
 
-let storage = {
-    'username': '',
-    'focus': '',
-    'city': ''
+window.onload = () => {
+    setTime();
+    getStorage();
 };
 
 // DOM
@@ -60,18 +73,10 @@ const dateScreen = document.querySelector('[data-date-screen]');
 const username = document.querySelector('[data-username]');
 const focus = document.querySelector('[data-focus]');
 
-//username.addEventListener('keypress', setUsername);
-//username.addEventListener('blur', setUsername);
+username.addEventListener('keydown', checkElement);
+username.addEventListener('blur', setUsernameStorage);
+username.addEventListener('click', deleteInner);
 
-username.addEventListener('mousedown', (e) => {
-    console.log(e.target.innerText);
-    if (e.target.innerText || e.target.innerText != null || e.target.innerText != '') {
-        
-    } else {
-        console.log(1);
-    }
-});
-
-
-setTime();
-getUsername();
+focus.addEventListener('keydown', checkElement);
+focus.addEventListener('blur', setFocusStorage);
+focus.addEventListener('click', deleteInner);
