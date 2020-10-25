@@ -107,10 +107,12 @@ body {
 }
 
 .content-section .content-section__blockquote {
+  font-size: 14px;
   padding-bottom: 10px;
 }
 
 .content-section .content-section__figcaption {
+  font-size: 14px;
   float: center;
   font-style: italic;
   width: 100%;
@@ -118,7 +120,25 @@ body {
 }
 
 .content-section .content-section__change-quote-btn {
+  font-size: 14px;
   color: #ffffff;
+}
+
+.content-section .content-section__weather {
+  margin-bottom: 20px;
+}
+
+.content-section .content-section__weather-city {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.content-section .content-section__weather-data {
+  display: none;
+}
+
+.content-section .content-section__weather-icon {
+  font-size: 18px;
 }
 
 @media (max-width: 700px) {
@@ -137,15 +157,5 @@ body {
   .content-section .content-section__quote {
     max-width: 400px;
   }
-}
-
-.logo {
-  height: 100px;
-  width: 200px;
-  background-color: red;
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 40px 50px;
 }
 /*# sourceMappingURL=style.css.map */
