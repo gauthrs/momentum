@@ -1,3 +1,7 @@
+const _ge = (elem) => {
+    return document.querySelector(elem);
+}
+
 // fucntion show time
 const setTime = () => {
     const daysWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -18,6 +22,10 @@ const setTime = () => {
 
     timeScreen.innerHTML = `${hour}:${addZero(min)}:${addZero(sec)}`;
     dateScreen.innerHTML = `${dayWeek}, ${day} ${month} ${year}`;
+
+    greeting.innerHTML = (hour < 6) ? 'Good night,' :
+                              (hour < 12) ? 'Good morning,' :
+                              (hour < 18) ? 'Good day,' : 'Good evening,';
 
     setTimeout(() => {
         setTime();
@@ -67,11 +75,12 @@ window.onload = () => {
 };
 
 // DOM
-const timeScreen = document.querySelector('[data-time-screen]');
-const dateScreen = document.querySelector('[data-date-screen]');
+const timeScreen = _ge('[data-time-screen]');
+const dateScreen = _ge('[data-date-screen]');
+const greeting = _ge('[data-greeting]');
 
-const username = document.querySelector('[data-username]');
-const focus = document.querySelector('[data-focus]');
+const username = _ge('[data-username]');
+const focus = _ge('[data-focus]');
 
 username.addEventListener('keydown', checkElement);
 username.addEventListener('blur', setUsernameStorage);
