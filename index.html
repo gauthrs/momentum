@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum</title>
+    <link rel="stylesheet" href="./assets/css/owfont-regular.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="wrapper">
-
         <div class="content-section">
+
+            <div class="content-section__weather">
+                <span class="content-section__weather-city" data-city contenteditable="true"></span>
+                <h4 class="content-section__weather-data">
+                    <span data-temperature></span>
+                    <span class="content-section__weather-icon owf" data-icon></span>
+                    <span data-description></span>
+                </h4>
+            </div>
+
             <div class="content-section__date" data-date-screen>Monday, 1 January 1970</div>
             <div class="content-section__time" data-time-screen>00:00:00</div>
 
@@ -30,7 +40,6 @@
             </div>
 
         </div>
-
     </div>
 <script src="./main.js"></script>
 </body>
