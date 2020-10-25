@@ -27,10 +27,18 @@ const setTime = () => {
                               (hour < 12) ? 'Good morning,' :
                               (hour < 18) ? 'Good day,' : 'Good evening,';
 
+    document.body.style.backgroundImage = (hour < 6) ? 'url(./assets/images/night/03.jpg)' :
+                                          (hour < 12) ? 'url(./assets/images/morning/10.jpg)' :
+                                          (hour < 18) ? 'url(./assets/images/day/02.jpg)' : 'url(./assets/images/evening/02.jpg)';
+
     setTimeout(() => {
         setTime();
     }, 1000);
 };
+
+const getBackground = (hour) => {
+    
+}
 
 const getStorage = () => {
     username.innerHTML = (localStorage.getItem('username')) ? localStorage.getItem('username') : '[Enter your name]';
