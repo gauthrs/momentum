@@ -36,10 +36,6 @@ const setTime = () => {
     }, 1000);
 };
 
-const getBackground = (hour) => {
-    
-}
-
 const getStorage = () => {
     username.innerHTML = (localStorage.getItem('username')) ? localStorage.getItem('username') : '[Enter your name]';
     focus.innerHTML = (localStorage.getItem('focus')) ? localStorage.getItem('focus') : '[Enter your focus]';
@@ -77,10 +73,24 @@ const checkElement = (e) => {
     }
 };
 
+const getQuote = async () => {
+    const url = `https://quote-garden.herokuapp.com/api/v2/quotes/random`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.quote.quoteText.split('').length > 210) {
+        getQuote();
+    } else {
+        blockquote.innerHTML = data.quote.quoteText;
+        figcaption.innerHTML = data.quote.quoteAuthor;
+    }
+};
+
 window.onload = () => {
     setTime();
     getStorage();
 };
+
+getQuote();
 
 // DOM
 const timeScreen = _ge('[data-time-screen]');
@@ -89,6 +99,14 @@ const greeting = _ge('[data-greeting]');
 
 const username = _ge('[data-username]');
 const focus = _ge('[data-focus]');
+
+const blockquote = _ge('[data-blockquote]');
+const figcaption = _ge('[data-figcaption]');
+const quoteBtn = _ge('[data-quote-btn]');
+
+quoteBtn.addEventListener('click', () => {
+    getQuote();
+});
 
 username.addEventListener('keydown', checkElement);
 username.addEventListener('blur', setUsernameStorage);
