@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Space Mono', monospace;
+  font-weight: normal;
+  src: url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+button:hover,
+a:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  line-height: 1.2;
+  background-color: #161616;
+  color: #ffffff;
+  background-size: cover;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.content-section h1 {
+  margin-bottom: 30px;
+}
+
+.content-section h2 {
+  margin-bottom: 5px;
+  opacity: 0.8;
+}
+
+.content-section .content-section__date {
+  font-size: 20px;
+}
+
+.content-section .content-section__time {
+  font-size: 90px;
+  text-shadow: 0 0 15px #555555;
+}
+
+@media (max-width: 700px) {
+  .content-section .content-section__time {
+    font-size: 70px;
+  }
+  .content-section .content-section__date {
+    font-size: 15px;
+  }
+}
+
+.logo {
+  height: 100px;
+  width: 200px;
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 40px 50px;
+}
+/*# sourceMappingURL=style.css.map */
